@@ -1,0 +1,118 @@
+<!--
+Name: Stefan Suarez
+Assignment: Lab2
+Final Draft: 9/17/2014
+Description: Make a piece of running code that displays notes on Javascript: The Good Parts lecture.
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Stefan Suarez</title>
+</head>
+<body>
+<script src="./js/Lab 2.js"></script>
+<h2 style="color:darkgreen">"JavaScript: The Good Parts" Notes.</h2>
+<p style="color:darkgreen">Since the instructions were unclear this time about what it meant to make the notes show up as code,
+I took it at face value to mean I should input my notes into a code tag and format it in that way, rather than make
+a javascript program that would alter a page to show the script used to display notes - especially since I could not get a JavaScript program to store such a long string in an elegant manner.
+I did manage to utilize at least a little JavaScript to alter the background and a little CSS to alter the text colors.</p>
+
+<div align="left">
+	<pre><code id="Notes1" style="color:darkblue">
+<h3><em>I. Mediocre Parts</em></h3>
+<strong>	A. "Loose typing"</strong>: any variable or parameter can contain any type of value
+			1. Can be scary, but strict typing, where you have to specify the type of value a variable will hold, doesn't absolve you of the need to test.
+				You'll have to test either way.
+			2. Reason why this is mediocre is because it does have the benefit of making it so that you don't have to mess with the type system.
+				"Liberating," as Crockford called it.
+
+
+<h3><em>II. Horrendously Bad Parts</em></h3>
+<strong>	A. Global variables</strong>
+			1. Language does not have a "linker" so all variables get tossed together where they can collide. This produces bad reliability
+				and security issues. Allows Cross-side script attacks.
+<strong>	B. Uses + to add and concatenate(add on words to each other)</strong>
+			1. Came from Java, in which it wasn't as much of a problem because of the strongly typed language. Since Javascript is loosely typed, though, 
+				you don't have that fall-back. 
+<strong>	C. Automatically inserts semicolons.</strong>
+			1. To paraphrase, Crockford basically said that, when the compiler gets jumbled, it goes back, searches for a line feed and inserts a semicolon. 
+				This can produce some interesting results.
+<strong>	D. Typeof Command</strong>
+			1. Can be useful sometimes, but it has two quirks.
+				a. Array = object : Not helpful
+				b. Null = object : WRONG!
+<strong>	E. With and Eval statements</strong>
+			1. Avoid them. They slow down the program.
+			2. Supposedly, a newer version of JavaScript with a strict tag would completely remove the ability to use With statements and highly
+				limit the ability to use Eval statements. 
+<strong>	F. Phony Arrays</strong>
+			1. Arrays don't have dimensions and are not meant to be quick in javascript. Simplifies the language, but takes away a piece of utility.
+<strong>	G. = = operator</strong>(spaced in order to show that it's actually two equal signs)
+			1. It does type coercion and will compare strings to numbers while possibly returning a true boolean.
+			2. Example:
+			
+			var x = 1= ="1"
+			return x
+			//will return true which is not correct since one is an integer and the other is a string.
+<strong>	H. For..in statements</strong>
+			1. Design decision on this statement was not thoroughly explained to the language users, and so there is a lot of confusion on how to use it.
+<strong>	I. Blockless statements: No curly brackets means potentially broken code</strong>
+			Example of broken code:
+
+			If(foo)
+				bar();
+	
+<strong>	J. Expression statements</strong>
+			1. You can create a statement with just a variable name and it won't do anything.
+<strong>	K. Floating Point arithmetic</strong>
+			1. Floating point is the only number type in the language, but it's not always accurate. That's a problem when processing financial information.
+<strong>	L. ++(increment) and -- (decrement)</strong>
+			1. These are present, but they are still notorious for buffer overruns and security hazards
+
+
+<em><h3>III. Good parts that behave badly together</h3></em>
+<strong>	A. Objects can inherit from other objects</strong>
+<strong>	B. Functions can be members of objects</strong>
+<strong>	C. For..in statement that mixes inherited functions with the desired data members</strong></p>
+
+
+<h3><em>IV. Marvelously Good Parts</h3></em>
+<strong>	A.Lambda</strong>
+			1. Douglas Crockford praises it during his lecture, but doesn't really tell me what it is.
+<strong>	B. Dynamic Objects</strong>
+			1. Take any object and at any time add or remove a property from it.
+			2. No "Classes" to worry about.
+<strong>	C. Object literals</strong>
+<strong>	D. Closure</strong>
+			1. To the best of my understanding, closure is the use of {} in this language in order to create function objects that can reference private variables and 
+				parameters in themselves without the need for using global variables.
+<strong>	E. Tools such as JSLint are available to help in dealing with bad code habits</strong>
+<strong>	F. JavaScript applications can reach a potential audience of billions</strong>
+<strong>	G. If you avoid the bad parts JavaScript works really well.</strong>
+<strong>	H. It is possible to write good programs with JavaScript</strong>
+
+
+<h3><em>V. Things to watch out for:</em></h3>
+<strong>	Style is not subjective in this language.</strong>
+
+	Return
+	{
+		ok: false
+	};
+
+	will give you a silent error. You must place the upper bracket just after the word "return" in the same line. If not, the compiler will generate
+	the following:
+
+	Return;
+	{
+		ok: false;
+	}
+
+	Which is nothing but empty and expression statements due to semi-colon insertion.
+</p>
+	</code></pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!-- 
+Name: Stefan Suarez
+Assignment: Lab5
+Final Draft: 10/15/2014
+Description: Play around with the D3 example in the book shown last class period.
+Note: I have added comments next to the stuff I changed in histogram.html and histogram.js.
+All values in histogram-hours.json have been altered as well.
+Extra Note: Bars are green in memory of my bird that died this week. Just wish I could have done
+a gradient green to yellow, and also that I could have done more to save him. :(
+-->
+
+<!DOCTYPE html>
+<title>Stefan Suarez's Alteration of D3</title>
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  .axis path,
+  .axis line {
+    fill: none;
+      /* Stroke color changed to black from gray and shape-rendering style changed
+      from crispyEdges to geometricPrecision. */
+    stroke: #000;
+    shape-rendering: geometricPrecision;
+  }
+
+  .axis text {
+      /* Font size changed from 11px to 14px */
+    font-size: 14px;
+  }
+/* Bar color changed from steel blue to a variant of green picked out using the color
+      pallet in the brackets editor. */
+  .bar {
+    fill: #30af1f;
+  }
+</style>
+<p><em>Green in memory of my parakeet, Kiwi, who died tonight on 10/15/2014, a little over one hour before class.
+    Fairwell, buddy. I'm sorry I couldn't do more to help you. :(</em></p>
+<div class="container">
+  <div class="row">
+    <div id="graph" class="span12">
+    </div>
+  </div>
+</div>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="histogram.js"></script>

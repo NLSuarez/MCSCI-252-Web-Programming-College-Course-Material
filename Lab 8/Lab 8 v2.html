@@ -1,0 +1,30 @@
+<!-- 
+Name: Stefan Suarez
+Assignment: Lab 8
+Final Draft: 11/5/2014
+Description: Use the google maps API to create map filled with markers that show all latitudes and longitudes
+associated with unique ip addresses that have accessed the jeremy lab.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Jeremy Lab IP Location</title>
+    <link rel="sytlesheet" href="http://js.arcgis.com/3.11/esri/css/esri.css">
+    <style>
+     html,body, #map-canvas{
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+     }
+    </style>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEfefrv-tU5KI6HF1vSZ7WQ3XJ3iLpF0Q"></script>
+    <script type="text/javascript" src="./js/Lab 8.js"></script>
+    </head>
+    <body>
+        <p style="font: bold timesnewroman 12px; text-align: center;">All markers displayed on this map are latitude and longitude representations of unique ip addresses accessing the Jeremy Box.</p>
+        <div id="map-canvas"></div>
+    </body>
+</html>

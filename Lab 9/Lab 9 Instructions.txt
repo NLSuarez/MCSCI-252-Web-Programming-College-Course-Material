@@ -1,0 +1,101 @@
+NAME: Stefan Suarez
+Lab 9
+Year 2014
+Fall Semester CSCI 252
+
+
+Henry Books Case
+Ray Henry is aware that the ability to query a database easily is one of the most important benefits of using a good DBMS. Now that you have helped him computerize his database, he is anxious to have you help him obtain answers to a variety of questions. In the following exercises, you will use the data in the Henry Books database shown in Figures 1-15 through 1-18 in Chapter 1. (If you use a computer to complete these exercises, use a copy of the Henry Books database so you will still have the original data when you complete Chapter 3.) In each step, use QBE to obtain the desired results. You can use the query feature in a DBMS to complete the exercises using a computer, or you can simply write a description of how you would complete the task. Check with your instructor if you are uncertain about which approach to take.  
+
+((Note to self: When doing query wizard do modify the query design.))
+
+1. List the author number and last name for every author.
+	Access - SELECT Author.[AuthorNum], Author.[AuthorLast] FROM Author;
+	SQlite - select authornum, authorlast from author;
+
+
+2. List the complete Branch table (all rows and all columns).
+   	Access - SELECT Branch.[BranchNum], Branch.[BranchName], Branch.[BranchLocation], Branch.[NumEmployees] FROM Branch;
+   	SQlite - select branchnum, branchname, branchlocation, numemployees from branch;
+
+3. List the name of every publisher located in Boston.
+   	Example Access Given with Text file - SELECT Publisher.[PublisherCode], Publisher.[PublisherName], Publisher.[City] FROM Publisher WHERE (((Publisher.[City])="Boston"));
+   	True Access Statement - SELECT Publisher.[PublisherName] FROM Publisher WHERE (((Publisher.[City])="Boston"));
+	SQlite - select publishername from publisher where city="Boston";
+Note for SQlite in this one: the city is case sensitive. It won't return properly unless you capitalize it.
+
+
+4. List the name of every publisher not located in Boston.
+	Access - SELECT Publisher.[PublisherName] FROM Publisher WHERE ((Not (Publisher.[City])="Boston"));
+	SQlite - select publishername from publisher where city!="Boston";
+
+5. List the name of every branch that has at least nine employees.
+	Access - SELECT Branch.[BranchName] FROM Branch WHERE (((Branch.NumEmployees)>=9));
+	SQlite - select branchname from branch where numemployees>=9;
+
+6. List the book code and title of every book that has the type SFI.
+	Access - SELECT Book.[BookCode], Book.[Title] FROM Book WHERE (((Book.[Type])="SFI"));
+	SQlite - select bookcode, title from book where type="SFI";
+
+7. List the book code and title of every book that has the type SFI and that is a paperback.
+	Access - SELECT Book.[BookCode], Book.[Title] FROM Book WHERE (((Book.[Type])="SFI") AND ((Book.[Paperback])=True));
+	SQlite - select bookcode, title from book where type='SFI' and paperback='Y';
+Note 1: Use .dump to figure out the values stored in each collumn from now on.
+
+8. List the book code and title of every book that has the type SFI or that has the publisher code PE.
+	Access - SELECT Book.BookCode, Book.Title FROM Book WHERE (((Book.Type)="SFI") AND ((Book.PublisherCode)="PE"));
+	SQlite - select bookcode, title from book where type='SFI' and publishercode='PE';
+Note: Hardy har har. This is a trick question cause there are no books that match these parameters.
+Note 2: The brackets are actually not present in the access sql after designing the querry, so I will leave them out from here on.
+
+9. List the book code, title, and price for each book with a price that is greater than $5 but less than $10.
+	Access - SELECT Book.BookCode, Book.Title FROM Book WHERE (((Book.Price)>5 AND (Book.Price)<10));
+	SQlite - select bookcode, title from book where price>5 and price<10;
+
+10. List the book code and title of every book that has the type FIC and a price of less than $10.
+	Access - SELECT Book.BookCode, Book.Title FROM Book WHERE (((Book.Price)<10) AND ((Book.Type)="FIC")); 
+	SQlite - select bookcode, title from book where price<10 and type='FIC';
+
+11. Customers who are part of a special program get a 15% discount off regular book prices. To determine the dis- counted prices, list the book code, title, and discounted price of every book. (Your calculated column should deter- mine 85% of the current price, which is 100% less a 15% discount.) 
+	Access - SELECT Book.BookCode, Book.Title, Round([Book.Price]*0.85,2) AS Expr1 FROM Book;
+	SQlite - select bookcode, title, round(price*0.85,2) from book;
+
+12. List the book code and title of every book that has the type SFI, HOR, or ART.
+	Access - SELECT Book.BookCode, Book.Title FROM Book WHERE (((Book.Type)="SFI")) OR (((Book.Type)="HOR")) OR (((Book.Type)="ART"));
+	SQlite - select bookcode, title from book where type='SFI' or type='HOR' or type='ART';
+
+13. List the book code, title, and publisher code for all books. Sort the results by title within publisher code.
+	Access - SELECT Book.BookCode, Book.Title, Book.PublisherCode FROM Book ORDER BY Book.PublisherCode, Book.Title;
+	SQlite - select bookcode, title, publishercode from book order by publishercode, title;
+
+14. How many books have the type SFI?
+	Access - SELECT Count([Book].[Type]="SFI") AS Expr1 FROM Book WHERE (((Book.Type)="SFI"));
+	SQlite - select count(type='SFI') from book where type='SFI';
+
+15. Calculate the average price for each type of book.
+	Access - SELECT Book.Type, Round(Avg([Book].[Price]),2) AS AveragePrice FROM Book GROUP BY Book.Type;
+	SQlite - select type, round(avg(price),2) from book group by type;
+
+16. For every book, list the book code, book title, publisher code, and publisher name.
+	Access - SELECT Book.Title, Book.BookCode, Publisher.PublisherCode, Publisher.PublisherName FROM Publisher INNER JOIN Book ON Publisher.PublisherCode = Book.PublisherCode GROUP BY Book.Title;
+
+	SQlite - select book.title, book.bookcode, publisher.publishercode, publisher.publishername from publisher inner join book on publisher.publishercode = book.publishercode group by title;
+
+17. For every book published by Taunton Press, list the book title and book price.
+	Access - 
+SELECT Book.Title, Book.Price
+FROM Publisher INNER JOIN Book ON Publisher.PublisherCode = Book.PublisherCode
+WHERE (((Publisher.PublisherName)="Taunton Press"));
+
+
+	SQlite -
+select book.title, book.price from publisher inner join book on publisher.publishercode=book.publishercode where publisher.publishername="Taunton Press";
+
+18. List the book title and book code for every book published by Putnam Publishing Group that has a book price greater than $15.
+	Access -
+SELECT Book.Title, Book.BookCode
+FROM Publisher INNER JOIN Book ON Publisher.PublisherCode = Book.PublisherCode
+WHERE (((Publisher.PublisherName)="Putnam Publishing Group") AND ((Book.Price)>15));
+	
+	SQlite -
+select book.title, book.bookcode from publisher inner join book on publisher.publishercode = book.publishercode where publisher.publishername='Putnam Publishing Group' and book.price>15;

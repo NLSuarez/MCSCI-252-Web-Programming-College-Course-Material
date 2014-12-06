@@ -1,0 +1,90 @@
+<!-- 
+Name: Stefan Suarez
+Assignment: Lab3
+Final Draft: 9/30/2014
+Description: Refactor the sloppy code for a calculator program using jslint and jsbeautify.
+-->
+<!DOCTYPE html>
+<html>
+<!-- There was an error with the head tag in the original html file. It is now fixed. -->
+<head>
+    <title>Money Counter(Corrected)</title>
+
+    <script src="./js/Lab 3 Experiment 2.js"></script>
+</head>
+
+<body>
+    <center>
+		<h4>Simple money calculator refactored courtesy of Stefan Suarez.</h4>
+        <form name=coinform>
+            <table border=1>
+                <tr>
+                    <td align=center>$ 100</td>
+                    <td align=center>$ 50</td>
+                    <td align=center>$ 20</td>
+                    <td align=center>$ 10</td>
+                    <td align=center>$ 5</td>
+                    <td align=center>$ 1</td>
+                </tr>
+                <tr>
+                    <td align=center>
+                        <input type=text name=hun size=3>
+                    </td>
+                    <td align=center>
+                        <input type=text name=fif size=3>
+                    </td>
+                    <td align=center>
+                        <input type=text name=twe size=3>
+                    </td>
+                    <td align=center>
+                        <input type=text name=ten size=3>
+                    </td>
+                    <td align=center>
+                        <input type=text name=fiv size=3>
+                    </td>
+                    <td align=center>
+                        <input type=text name=one size=3>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan=6></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align=center>50 ¢</td>
+                    <td align=center>25 ¢</td>
+                    <td align=center>10 ¢</td>
+                    <td align=center>5 ¢</td>
+                    <td align=center>1 ¢</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align=center>
+                        <input type=text name=hlf size=3>
+                    </td>
+                    <td align=center>
+                        <input type=text name=qtr size=3>
+                    </td>
+                    <td align=center>
+                        <input type=text name=dme size=3>
+                    </td>
+                    <td align=center>
+                        <input type=text name=nck size=3>
+                    </td>
+                    <td align=center>
+                        <input type=text name=pny size=3>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan=5 align=center>
+                        <input type=button name=calc value="Calculate" onClick="javascript:money(this.form)">
+                        <input type=text name=total size=10>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+
+</html>
+

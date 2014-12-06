@@ -1,0 +1,46 @@
+<!--
+Name: Stefan Suarez
+Assignment: Lab1
+Final Draft: 9/10/2014
+Description: Make a simple, one page document with javascript separated into its own folder and host
+on the Jeremy Box.
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<!--The above command sets the character encoding for the html document to unicode.-->
+<title>Stefan Suarez</title>
+<!--Sets the title for the web page. Required in the head tag.-->
+<script src="./js/Lab1.js"></script>
+</head>
+<body>
+<h1>Fooling with text.</h1>
+<p>This program is my attempt at messing with user input for color and text as
+a way to combine the example program for this lab with some of the initial examples on w3schools.
+Just follow the instructions for the fields and try to input something silly.</p>
+
+<div align="left">
+	<form>
+	<p>Your Name: <input type="text" id="name1"></p>
+	<p>An Activity or Hobby: <input type="text" id="hobby1"></p>
+	<p>A City Name: <input type="text" id="place1"></p>
+	<p>Now click on the color button you wish your answer to come out in.</p>
+	
+	<input type="button" value="Dark Green" onclick="generatetext1();">
+	<input type="button" value="Indigo" onclick="generatetext2();">
+	<input type="button" value="Maroon" onclick="generatetext3();">
+	<!--
+	Note to self: try and find a different website to compliment W3Schools because some of the information seems to be outdated and lacking.
+	I was originally going to use a setTimeout function but researching other websites revealed it was more complicated than W3Schools led
+	me to believe.
+	-->
+	</form>
+</div>
+<div>
+	<p>Message will display here:</p>
+	<p id="displayhere"></p>
+</div>
+</body>
+</html>
